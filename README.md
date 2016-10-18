@@ -1,4 +1,5 @@
-# Javascript functional programming ?
+# Higher-order functions, callbacks & Promises()
+by funfunweird
 
 Higher order functions are functions that take another function as an arguments.
 e.g. map(), filter(), reduce() etc.
@@ -17,7 +18,4 @@ var matches = arr.filter(function(i) {
   return arr.name === 'example'
 })
 ```
-Promises are just like callbacks, as they are a way of dealing with asynchronous code when we are unsure of when things will happen and in what order. But Promises are more powerful than callbacks because they compose, which means they easily combine to build more complicated functions.
-
-
-promise.all is just one example of this and the promise object has alot more functionality to offer.
+Promises are just like callbacks, as they are a way of dealing with asynchronous code, when we are unsure of when things will happen and in what order. But Promises are more powerful than callbacks because they compose, which means they easily combine to build more complicated functions.
