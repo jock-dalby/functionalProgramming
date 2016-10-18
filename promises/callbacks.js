@@ -1,10 +1,59 @@
-/********** Promises ***************/
+/********** Callbacks ***************/
 
-let addImgPR = (src) => {
+let addImg = (src) => {
   let imgElement = document.createElement('img')
   imgElement.src = src
-  document.getElementById('promises').appendChild(imgElement)
+  document.getElementById('callbacks').appendChild(imgElement)
 }
+
+function loadImage(url, callback) {
+  let image = new Image()
+
+  image.onload = function() {
+    callback(null, image)
+  }
+
+  image.onerror = function() {
+    let msg = 'Could not load image at ' + url
+    callback(new Error(msg))
+  }
+
+  image.src = url
+}
+
+
+loadImage('images/cat1.jpg', (err, img1) => {
+  if(err) throw err;
+  addImg(img1.src)
+  loadImage('images/cat2.jpg', (err, img2) => {
+    if(err) throw err;
+    addImg(img2.src)
+    loadImage('images/cat3.jpg', (err, img3) => {
+      if(err) throw err;
+      addImg(img3.src)
+    })
+  })
+})
+
+// could this be map() ??
+
+let arr = [
+  'images/cat1.jpg',
+  'images/cat2.jpg',
+  'images/cat3.jpg'
+  ]
+
+arr.map(img => loadImage(img, (err, img1) => {
+  if(err) throw err;
+  addImg(img1.src)
+}))
+
+
+// not running in parallel, one must finish before next can start
+
+// What if we use promises ???
+
+/********** Promises ***************/
 
 function loadImagePR(url) {
   return new Promise((resolve, reject) => {
@@ -40,7 +89,7 @@ loadImagePR('images/cat1.jpg').then((img1) => {
   })
 })
 
-// Promise.all() - Returns a promise that either fulfills when all of the promises in the iterable argument have fulfilled or rejects as soon as one of the promises in the iterable argument rejects.
+// Promise.all()
 
 Promise.all([
   loadImagePR('images/cat1.jpg'),
@@ -53,7 +102,6 @@ Promise.all([
 })
 
 // Key points:
-
 // 1.An array of promises is being passed into the all method of the promise object.
 
 // 2.promise.all will return a new promise which we are calling then on.
@@ -64,4 +112,12 @@ Promise.all([
 
 // 5.Promise.all is just one example of this and the promise object has alot more functionality to offer.
 
-//6. .catch(onRejected) Rejection handler callback.
+// addImg functions
+
+
+
+let addImgPR = (src) => {
+  let imgElement = document.createElement('img')
+  imgElement.src = src
+  document.getElementById('promises').appendChild(imgElement)
+}

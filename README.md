@@ -23,4 +23,37 @@ Big word alert! - Synchronous code executes in order. First you do step 1, then 
 
 Asynchronous code may be executed at the same time, out of order, or at least before other steps have fully completed.
 
-Promises are more powerful than callbacks because they compose, which means they can easily be combined to build larger, more complicated functions.
+A promise represents a value which may be available now, or in the future, or never. Promises are more powerful than callbacks because they compose, which means they can easily be combined to build larger, more complicated functions.
+
+A Promise is always in one of these 3 states:
+
+- pending: initial state, not fulfilled or rejected.
+- fulfilled: meaning that the operation completed successfully by retrieving a value.
+- rejected: meaning that the operation failed by retrieving an error message.
+
+The primary method of a promise is its 'then' method, which registers callbacks to receive either the eventual value or the reason why the promise cannot be fulfilled.
+
+Here is a simple “hello world” program that synchronously obtains and logs a greeting.
+```js
+var greeting = sayHello();
+console.log(greeting);    // 'hello world’
+```
+However, if sayHello is asynchronous and needs to look up the current greeting from a web service, it may return a promise:
+```js
+var greetingPromise = sayHello();
+greetingPromise.then(function (greeting) {
+    console.log(greeting);    // 'hello world’
+});
+```
+The same message is printed to the console, but now other code can continue while the greeting is being fetched.
+
+A promise can also represent a failure. If the network goes down and the greeting can’t be fetched from the web service, you can register to handle the failure using the second argument to the promise’s then method:
+```js
+var greetingPromise = sayHello();
+greetingPromise.then(function (greeting) {
+    console.log(greeting);    // 'hello world’
+}, function (error) {
+    console.error('uh oh: ', error);   // 'uh oh: something bad happened’
+});
+```
+If sayHello succeeds, the greeting will be logged, but if it fails, then the reason, i.e. error, will be logged using console.error.
