@@ -48,7 +48,7 @@ greetingPromise.then(function (greeting) {
 ```
 The same message will be printed to the console, but now other code can continue while the greeting is being fetched.
 
-
+#.catch()
 A promise can also represent a failure. If the network goes down and the greeting can’t be fetched from the web service, you can register to handle the failure using the second argument to the promise’s then method:
 ```js
 var greetingPromise = sayHello();
