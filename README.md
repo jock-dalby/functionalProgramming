@@ -25,7 +25,7 @@ Synchronous code executes in order. First you do step 1, then you do step 2, the
 
 Asynchronous code may be executed at the same time, out of order, or at least before other steps have fully completed.
 
-A promise represents a value which may be available now, or in the future, or never. Promises are more powerful than callbacks because they compose, which means they can easily be combined to build larger, more complicated functions.
+A promise represents a value which may be available now, or in the future, or never. Promises are native to ES6 and are more powerful than callbacks because they are composable, which means they can easily be combined to build larger, more complicated functions.
 
 A Promise is always in one of these 3 states:
 
@@ -58,7 +58,7 @@ greetingPromise
   .then(function (greeting) {
     console.log(greeting);    // 'hello world’
   })
-  .catch((err) => {
+  .catch() {
   console.error('uh oh: ', error);   // 'uh oh: something bad happened’
   })
 ```
@@ -74,7 +74,7 @@ greetingPromise
     .then(function (greeting) {
       console.log(greeting);    // 'hello world’
     })
-    .catch((err) => {
+    .catch() {
     console.error('uh oh: ', error);   // 'uh oh: something bad happened’
     })
 ```
