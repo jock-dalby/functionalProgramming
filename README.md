@@ -31,7 +31,8 @@ A Promise is always in one of these 3 states:
 - fulfilled: meaning that the operation completed successfully by retrieving a value.
 - rejected: meaning that the operation failed by retrieving an error message.
 
-The primary method of a promise is its 'then' method, which registers callbacks to receive either the eventual value or the reason why the promise cannot be fulfilled.
+#.then()
+The primary method of a promise is its '.then' method, which registers callbacks to receive either the eventual value or the reason why the promise cannot be fulfilled.
 
 Here is a simple “hello world” program that synchronously obtains and logs a greeting.
 ```js
@@ -45,7 +46,7 @@ greetingPromise.then(function (greeting) {
     console.log(greeting);    // 'hello world’
 });
 ```
-The same message is printed to the console, but now other code can continue while the greeting is being fetched.
+The same message will be printed to the console, but now other code can continue while the greeting is being fetched.
 
 A promise can also represent a failure. If the network goes down and the greeting can’t be fetched from the web service, you can register to handle the failure using the second argument to the promise’s then method:
 ```js
@@ -57,3 +58,17 @@ greetingPromise.then(function (greeting) {
 });
 ```
 If sayHello succeeds, the greeting will be logged, but if it fails, then the reason, i.e. error, will be logged using console.error.
+
+A function passed to .then can also return another promise. This allows asynchronous operations to be chained together, so that they are guaranteed to happen in the correct order.
+
+```js
+var greetingPromise = sayHello();
+greetingPromise
+    .then(addExclamation)
+    .then(function (greeting) {
+        console.log(greeting);    // 'hello world!!!!’
+    }, function(error) {
+        console.error('uh oh: ', error);   // 'uh oh: something bad happened’
+    });
+```
+Notice you can use a single error handling block, in this case passed as the second parameter to the final call to then.
