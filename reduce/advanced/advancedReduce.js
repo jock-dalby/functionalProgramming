@@ -1,8 +1,6 @@
-// Reduce is not limited to reducing a list to a number, it can reduce it to anything.
+// Reduce is not limited to reducing a list to a number, it can reduce it to anything. Below is an example of other ways reduce can be used and how well higher-order functions compose together.
 
-// Here is an example of other ways reduce can be used and how well higher-order functions compose together.
-
-// Very useful for shopping cart projects!!! The chainability of the functions below is something you will see alot of while using functional programming. This chain means each function only needs to do one thing and then bind them all together.
+// This style of chain where each function only performs one task is something you will see alot of whilst using functional programming.
 
 var fs = require('fs')
 
@@ -23,3 +21,5 @@ var output = fs.readFileSync('reduce/advanced/data.txt', 'utf8')
 // The first argument passed to the reduce callback function is the object/item(s) we are constructing. The second item represents a single item in the array we are iterating through.
 
 console.log('output ', JSON.stringify(output, null, 2)) // create a JSON string from the output with 2 spaces for indentation
+
+// To run $ npm start
