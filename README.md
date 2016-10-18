@@ -1,4 +1,5 @@
 # Higher-order functions, callbacks & Promises()
+by funfunwierd
 
 Higher order functions are functions that take another function as an arguments.
 e.g. map(), filter(), reduce() etc.
