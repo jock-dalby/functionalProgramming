@@ -1,4 +1,4 @@
-# Javascript functional programming ?
+# Higher-order functions, callbacks & Promises()
 
 Higher order functions are functions that take another function as an arguments.
 e.g. map(), filter(), reduce() etc.
