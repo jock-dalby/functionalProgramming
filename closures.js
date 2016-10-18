@@ -9,3 +9,5 @@ function sendRequest() {
 }
 
 // Closures enables you to access variables outside the functional scope and inside the global scope.
+
+// Great docs here: https://developer.mozilla.org/en/docs/Web/JavaScript/Closures
