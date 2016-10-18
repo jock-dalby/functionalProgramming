@@ -1,3 +1,4 @@
+
 function loadImage(url, callback) {
   let image = new Image()
 

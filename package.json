@@ -5,9 +5,10 @@
   "main": "reduce/advanced/advancedReduce.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel reduce/advanced/advancedReduce.js | node",
+    "start-reduce": "babel reduce/advanced/advancedReduce.js | node",
     "start-two": "babel-node currying.js",
-    "start-three": "babel-node recursion.js"
+    "start-three": "babel-node recursion.js",
+    "start": "babel-node promises/index.html"
   },
   "repository": {
     "type": "git",
