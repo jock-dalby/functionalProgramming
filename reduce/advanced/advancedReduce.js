@@ -11,15 +11,13 @@ var output = fs.readFileSync('reduce/advanced/data.txt', 'utf8')
   .reduce((people, line) => {
     people[line[0]] = people[line[0]] || [] // We are re-using the existing array if one exists, otherwise we are creating a new one
     people[line[0]].push({
-    city: line[1],
-    likes: line[2],
-    age: line[3]
+    country: line[1],
+    city: line[2],
+    months: line[3]
   })
   return people
 }, {})
 
 // The first argument passed to the reduce callback function is the object/item(s) we are constructing. The second item represents a single item in the array we are iterating through.
 
-// console.log('output ', JSON.stringify(output, null, 2)) // create a JSON string from the output with 2 spaces for indentation
-
-console.log('output ', output)
+console.log('output ', JSON.stringify(output, null, 2)) // create a JSON string from the output with 2 spaces for indentation
