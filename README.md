@@ -21,8 +21,8 @@ var matches = arr.filter(function(i) {
 ```
 Promises are just like callbacks, as they are a way of dealing with asynchronous code, when we are unsure of when things will happen and in what order.
 
-Big word alert! - Synchronous simply means that things follow in order.  You do step 1, then you do step 2, then you do step 3.
+Big word alert! - Synchronous code executes code in order and will not execute the next function until the current one is complete. You do step 1, then you do step 2, then you do step 3.
 
-Asynchronous (not synchronous) means that the steps in the process may occur at the same time, out of order, or at least before other steps complete.
+Asynchronous code may be executed at the same time, out of order, or at least before other steps complete.
 
 Promises are more powerful than callbacks because they compose, which means they can easily be combined to build larger, more complicated functions.
