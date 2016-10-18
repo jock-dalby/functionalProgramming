@@ -26,10 +26,9 @@ let makeTree = (categories, parent) => {
   categories
     .filter(c => c.parent === parent) // 2. Filter through the array and find objects with parent property === null
     .forEach(c =>
-      node[c.id] =
-      makeTree(categories, c.id)) //
+      node[c.id] = makeTree(categories, c.id))
+      return node
       // 3. forEach of the objects from 2. we are going to assign a new node (obj) with id from filtered results as key and value as a new makeTree function. The new makeTree function will be passed in the categories list but with animals as the parent. They will in turn will call make tree with cats and dogs etc.
-  return node
 }
 
 console.log(
