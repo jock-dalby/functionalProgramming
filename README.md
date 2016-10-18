@@ -48,15 +48,19 @@ greetingPromise.then(function (greeting) {
 ```
 The same message will be printed to the console, but now other code can continue while the greeting is being fetched.
 
+
 A promise can also represent a failure. If the network goes down and the greeting can’t be fetched from the web service, you can register to handle the failure using the second argument to the promise’s then method:
 ```js
 var greetingPromise = sayHello();
-greetingPromise.then(function (greeting) {
+greetingPromise
+  .then(function (greeting) {
     console.log(greeting);    // 'hello world’
-}, function (error) {
-    console.error('uh oh: ', error);   // 'uh oh: something bad happened’
-});
+  })
+  .catch((err) => {
+  console.error('uh oh: ', error);   // 'uh oh: something bad happened’
+  })
 ```
+
 If sayHello succeeds, the greeting will be logged, but if it fails, then the reason, i.e. error, will be logged using console.error.
 
 A function passed to .then can also return another promise. This allows asynchronous operations to be chained together, so that they are guaranteed to happen in the correct order.
@@ -66,9 +70,10 @@ var greetingPromise = sayHello();
 greetingPromise
     .then(addExclamation)
     .then(function (greeting) {
-        console.log(greeting);    // 'hello world!!!!’
-    }, function(error) {
-        console.error('uh oh: ', error);   // 'uh oh: something bad happened’
-    });
+      console.log(greeting);    // 'hello world’
+    })
+    .catch((err) => {
+    console.error('uh oh: ', error);   // 'uh oh: something bad happened’
+    })
 ```
 Notice you can use a single error handling block, in this case passed as the second parameter to the final call to then.
