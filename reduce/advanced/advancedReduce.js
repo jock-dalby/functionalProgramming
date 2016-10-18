@@ -2,6 +2,8 @@
 
 // Here is an example of other ways reduce can be used and how well higher-order functions compose together.
 
+// Very useful for shopping cart projects!!! The chainability of the functions below is something you will see alot of while using functional programming. This chain means each function only needs to do one thing and then bind them all together.
+
 var fs = require('fs')
 
 var output = fs.readFileSync('reduce/advanced/data.txt', 'utf8')
@@ -11,9 +13,9 @@ var output = fs.readFileSync('reduce/advanced/data.txt', 'utf8')
   .reduce((people, line) => {
     people[line[0]] = people[line[0]] || [] // We are re-using the existing array if one exists, otherwise we are creating a new one
     people[line[0]].push({
-    country: line[1],
-    city: line[2],
-    months: line[3]
+    item: line[1],
+    cost: line[2],
+    quantity: line[3]
   })
   return people
 }, {})

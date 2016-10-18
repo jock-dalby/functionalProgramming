@@ -1,4 +1,6 @@
-Jock Dalby  Australia  Brisbane  18
-Jock Dalby  Australia  Brisbane  12
-Nele Taevere  NZ  Wellington  24
-Nele Taevere  NZ  Tauranga  9
+Jock Dalby  macbook  1200  1
+Jock Dalby  Craft beer  16  5
+Jock Dalby  Discount meat  6.5  15
+Nele Taevere  Wine  11.99  24
+Nele Taevere  Dress  80  4
+Nele Taevere  Cheese  8.50  3
