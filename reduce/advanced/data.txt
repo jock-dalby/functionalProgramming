@@ -1,0 +1,4 @@
+Jock Dalby  Wellington  beer  30
+Jock Dalby  Wellington  cheese  29
+Nele Taevere  Wellington  wine  32
+Nele Taevere  Wellington  knitting  32

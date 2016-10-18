@@ -1,4 +1,4 @@
-// Map is a higher-order function which loops through an array and transforms the values.
+// Map is a higher-order function which loops through an array and transform that into an aray of the same length but with each individual item transformed.
 
 // From this...
 var results = []

@@ -1,0 +1,25 @@
+{
+  "name": "functional-programming",
+  "version": "1.0.0",
+  "description": "Higher order functions are functions that take another other functions as an arguments.",
+  "main": "reduce/advanced/advancedReduce.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel reduce/advanced/advancedReduce.js | node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jock-dalby/functionalProgramming.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jock-dalby/functionalProgramming/issues"
+  },
+  "homepage": "https://github.com/jock-dalby/functionalProgramming#readme",
+  "dependencies": {
+    "babel-cli": "^6.16.0",
+    "fs": "0.0.1-security",
+    "node": "0.0.0"
+  }
+}
