@@ -17,9 +17,11 @@ var matches = arr.filter(function(i) {
   return arr.name === 'example'
 })
 ```
-Promises are just like callbacks, as they are a way of dealing with asynchronous code, when we are unsure of when things will happen and in what order.
+Promises are just like callbacks, as they are a way of dealing with asynchronous code when we are unsure of when things will happen and in what order.
 
-Big word alert! - Synchronous code executes in order. First you do step 1, then you do step 2, then you do step 3.
+Big word alert!
+
+Synchronous code executes in order. First you do step 1, then you do step 2, then you do step 3.
 
 Asynchronous code may be executed at the same time, out of order, or at least before other steps have fully completed.
 
@@ -32,7 +34,7 @@ A Promise is always in one of these 3 states:
 - rejected: meaning that the operation failed by retrieving an error message.
 
 #.then()
-The primary method of a promise is its '.then' method, which registers callbacks to receive either the eventual value or the reason why the promise cannot be fulfilled.
+The primary method of a promise is its .then method, which registers callbacks to receive either the eventual value or the reason why the promise cannot be fulfilled.
 
 Here is a simple “hello world” program that synchronously obtains and logs a greeting.
 ```js
@@ -49,7 +51,7 @@ greetingPromise.then(function (greeting) {
 The same message will be printed to the console, but now other code can continue while the greeting is being fetched.
 
 #.catch()
-A promise can also represent a failure. If the network goes down and the greeting can’t be fetched from the web service, you can register to handle the failure using the second argument to the promise’s then method:
+A promise can also represent a failure. If the network goes down and the greeting can’t be fetched from the web service, you can register to handle the failure using the .catch method:
 ```js
 var greetingPromise = sayHello();
 greetingPromise
@@ -61,9 +63,9 @@ greetingPromise
   })
 ```
 
-If sayHello succeeds, the greeting will be logged, but if it fails, then the reason, i.e. error, will be logged using console.error.
+If sayHello succeeds, the greeting will be logged, but if it fails, then the reason  will be logged using console.error.
 
-A function passed to .then can also return another promise. This allows asynchronous operations to be chained together, so that they are guaranteed to happen in the correct order.
+A function passed to .then can also return another promise. This allows asynchronous operations to be chained together (aka compose), so that the steps are guaranteed to happen in the correct order.
 
 ```js
 var greetingPromise = sayHello();
@@ -76,4 +78,4 @@ greetingPromise
     console.error('uh oh: ', error);   // 'uh oh: something bad happened’
     })
 ```
-Notice you can use a single error handling block, in this case passed as the second parameter to the final call to then.
+Notice you can use a single .catch method to handle multiple .then methods.
